@@ -1,18 +1,23 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
-#include <math.h>
+
 int main(void)
 {
-    int S,n,i;
-    scanf("%d",&S);
-    while(S--)
+    int n,i,month,day;
+    char week[7][11]={{"Sunday"},{"Monday"},{"Tuesday"},{"Wednesday"},{"Thursday"},{"Friday"},{"Saturday"}};
+    int monthday[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+    
+    scanf("%d",&n);
+    while(n--)
     {
-        float p,probability,temp;
-        scanf("%d %f %i",&n,&p,&i);
-        temp=pow((1.0-p),i-1.0);
-        temp*=p;
-        probability=temp* ( 1.0/( 1.0-pow(1-p,n) ) );
-        printf("%.4f\n",probability);
+        int dayall=0;
+        scanf("%d",&month);
+        scanf("%d",&day);
+        for(i=month;i>1;i--)
+            dayall+=monthday[i-2];
+        dayall+=day;
+        printf("%s\n",week[(dayall-2)%7]);
     }
+    
     return 0;
 }
