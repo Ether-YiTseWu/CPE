@@ -1,18 +1,21 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
-#include <math.h>
 int main(void)
 {
-    int S,n,i;
-    scanf("%d",&S);
-    while(S--)
+    int n,x,y,num=0;
+    scanf("%d",&n);
+    while(n--)
     {
-        float p,probability,temp;
-        scanf("%d %f %i",&n,&p,&i);
-        temp=pow((1.0-p),i-1.0);
-        temp*=p;
-        probability=temp* ( 1.0/( 1.0-pow(1-p,n) ) );
-        printf("%.4f\n",probability);
+         int ans=0;
+         scanf("%d %d",&x,&y);
+         for(int i=x;i<=y;i++)
+         {
+             if(i%2==1)
+                 ans+=i;
+         }
+         num++;
+         printf("Case %d: %d",num,ans);
     }
     return 0;
 }
+
