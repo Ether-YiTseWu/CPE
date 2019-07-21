@@ -1,41 +1,37 @@
-#include <stdio.h>
+#include <stdio.h> 
+#include <stdlib.h>
+#include<string.h>
 int main(void)
 {
-    int n,count[26]={0},temp=0,f,max=0;
-    char letter[26],tempC;
-    scanf("%d",&n);
-
+    char a[1001]={0}, b[1001]={0},letter[26];
     for(int i=0;i<26;i++)
-    {
         letter[i]='a'+i;
-    }
-    n=n+1;
-    while(n--)
+    while(fgets(a,1000,stdin))
     {
-        char array[100]={0};
-
-        fgets(array,100,stdin);
-        for(int j=0;j<100;j++)
+        fgets(b,1000,stdin);
+        int aLetter[26]={0},bLetter[26]={0};
+        for(int i=0;i<strlen(a);i++)
         {
-            for(int k=0;k<26;k++)
+            for(int c=0 ; c<26 ; c++)
             {
-                if(letter[k]==array[j] || letter[k]==array[j]+32)
-                    count[k]++;
+                if(letter[c]==a[i])
+                    aLetter[c]+=1;
             }
         }
-    }
-    for(int i=1;i<26;i++)
-    {
-        if(count[max]<count[i])
-            max=i;
-    }
-    for(f=count[max];f>0;f--)
-    {
-        for(tempC='A';tempC<='Z';tempC++)
+        for(int i=0;i<strlen(b);i++)
         {
-            if(count[tempC-65]==f)
-                printf("%c %d\n",tempC,f);
+            for(int c=0 ; c<26 ; c++)
+            {
+                if(letter[c]==b[i])
+                    bLetter[c]+=1;
+            }
         }
+        for(int i=0;i<26;i++)
+        {
+            if(aLetter[i]!=0 && bLetter[i]!=0)
+                printf("%c",letter[i]);
+        }
+        printf("\n");
     }
     return 0;
 }
