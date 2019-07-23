@@ -1,37 +1,22 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
 
 int main(void)
 {
-    int n, n2, i ,j , temp ,temp2;
-    scanf("%d",&n);
-
-    while(n--)
+    int i, n;
+    while(scanf("%d %d",&i,&n)!=EOF)
     {
-            scanf("%d",&n2);
-        int houseAddress[500]={0};
-            for(i = 0;i<n2;i++)
-            {
-                scanf("%d",&temp);
-                houseAddress[i] = temp;
-            }
-
-            for(i=0;i<n2;i++)
-            {
-                for(j=i+1;j<n2;j++)
-                {
-                    if(houseAddress[i]<houseAddress[j])
-                    {
-                         temp2 = houseAddress[i];
-                         houseAddress[i]=houseAddress[j];
-                         houseAddress[j]=temp2;
-                    }
-                }
-            }
-            n2 = (n2/2);
-            printf("path : %d\n",houseAddress[1]);
+        if(i>n)
+            printf("%d\n",i-n);
+        else if (i<n)
+            printf("%d\n",n-i);
+        else
+            printf("0\n");
     }
     return 0;
 }
+
+ *我的最爱::C++ For iOS - Free  https://itunes.apple.com/app/id1016322367?mt=8
+其它资料:http://uuu9u.com
